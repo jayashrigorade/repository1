@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="f6a5ed49-8101-4a79-bb48-f868a9c2871c" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="mulecommitprojectFlow" doc:id="a77e5ac3-3dbd-441f-a8f7-2b0478c6bb16" >
+		<http:listener doc:name="Listener" doc:id="d5372a78-a63a-4559-9888-bb5f57274783" config-ref="HTTP_Listener_config" path="/commit"/>
+		<set-payload value="#['Hello Wprld']" doc:name="Set Payload" doc:id="afac6582-0699-40f0-930d-b1dd4af7dc6a" />
+	</flow>
+</mule>
